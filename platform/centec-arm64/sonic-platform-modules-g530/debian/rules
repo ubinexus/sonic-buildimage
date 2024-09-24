@@ -43,7 +43,6 @@ build:
 	(for mod in $(MODULE_DIRS); do \
 		make modules -C $(KERNEL_SRC)/build M=$(MOD_SRC_DIR)/$${mod}/modules; \
 		cd $${mod}; \
-		python2.7 setup.py bdist_wheel -d $(MOD_SRC_DIR)/$${mod}/modules; \
 		python3 setup.py bdist_wheel -d $(MOD_SRC_DIR)/$${mod}/modules; \
 		cd -; \
 	done)

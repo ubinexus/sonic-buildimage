@@ -1,7 +1,6 @@
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/i2c.h>
-#include <linux/platform_data/pca954x.h>
 #include <linux/device.h>
 #include <linux/kdev_t.h>
 #include <linux/leds.h>
@@ -204,7 +203,7 @@ static int g530_sr100_8t4s26x_init_i2c_gpio(void)
         return -1;
     }
 
-    i2c_client_gpio0 = i2c_new_device(i2c_adp_gpio0, &i2c_dev_gpio0);
+    i2c_client_gpio0 = i2c_new_client_device(i2c_adp_gpio0, &i2c_dev_gpio0);
     if(IS_INVALID_PTR(i2c_client_gpio0))
     {
         i2c_client_gpio0 = NULL;
@@ -363,10 +362,10 @@ enum led_brightness g530_sr100_8t4s26x_led_get(struct led_classdev *led_cdev)
     if (ret != 0)
     {
         printk(KERN_CRIT "Error: read %s led attr failed\n", led_cdev->name);
-        return;
+        return ret;
     }
 
-    if ((led_value >> shift) & 0x1 == 0x1)
+    if (((led_value >> shift) & 0x1) == 0x1)
     {
         return LED_OFF;
     }
