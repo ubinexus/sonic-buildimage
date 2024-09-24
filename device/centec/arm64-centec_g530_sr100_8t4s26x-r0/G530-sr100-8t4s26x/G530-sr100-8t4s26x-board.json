@@ -1,0 +1,97 @@
+{
+    "phys" : [
+        {
+          "macid" : 48,
+          "busid" : 0,
+          "addr" : 0,
+          "base_port" : 0,
+          "last_port" : 3
+        },
+        {
+          "macid" : 49,
+          "busid" : 0,
+          "addr" : 1,
+          "base_port" : 0,
+          "last_port" : 3
+        },
+        {
+          "macid" : 50,
+          "busid" : 0,
+          "addr" : 2,
+          "base_port" : 0,
+          "last_port" : 3
+        },
+        {
+          "macid" : 51,
+          "busid" : 0,
+          "addr" : 3,
+          "base_port" : 0,
+          "last_port" : 3
+        },
+        {
+          "macid" : 52,
+          "busid" : 2,
+          "addr" : 4,
+          "base_port" : 4,
+          "last_port" : 7
+        },
+        {
+          "macid" : 53,
+          "busid" : 2,
+          "addr" : 5,
+          "base_port" : 4,
+          "last_port" : 7
+        },
+        {
+          "macid" : 54,
+          "busid" : 2,
+          "addr" : 6,
+          "base_port" : 4,
+          "last_port" : 7
+        },
+        {
+          "macid" : 55,
+          "busid" : 2,
+          "addr" : 7,
+          "base_port" : 4,
+          "last_port" : 7
+        }
+    ],
+    "ffe" : {
+        "board_material" : "BOARD_MATERIAL_M4",
+        "config" : [
+            {
+              "serdes_id" : [8, 12, 13, 11],
+              "is_dac"    : 0,
+              "speed"     : [1000],
+
+              "mode"      : "CTC_CHIP_SERDES_FFE_MODE_DEFINE",
+              "cfg"       : [2, 92, 15, 0]
+            },
+            {
+              "serdes_id" : [0, 1, 2, 3, 4, 5, 6, 7],
+              "is_dac"    : 0,
+              "speed"     : [10000, 1000],
+
+              "mode"      : "CTC_CHIP_SERDES_FFE_MODE_DEFINE",
+              "cfg"       : [2, 92, 15, 0]
+            },
+            {
+              "serdes_id" : [14, 15, 16, 17, 18, 19, 20, 21, 22, 23],
+              "is_dac"    : 0,
+              "speed"     : [10000, 1000],
+
+              "mode"      : "CTC_CHIP_SERDES_FFE_MODE_DEFINE",
+              "cfg"       : [2, 92, 15, 0]
+            },
+            {
+              "serdes_id" : [24, 25, 26, 27, 28, 29, 30, 31],
+              "is_dac"    : 0,
+              "speed"     : [10000],
+
+              "mode"      : "CTC_CHIP_SERDES_FFE_MODE_DEFINE",
+              "cfg"       : [0, 15, 63, 0]
+            }
+        ]
+    }
+}

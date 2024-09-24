@@ -1,0 +1,13 @@
+[Unit]
+Description=Centec modules init
+After=local-fs.target
+Before=syncd.service
+
+[Service]
+Type=oneshot
+ExecStart=-/etc/init.d/platform-modules-g530-sr100-8t4s26x start
+ExecStop=-/etc/init.d/platform-modules-g530-sr100-8t4s26x stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

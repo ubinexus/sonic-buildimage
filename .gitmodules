@@ -4,7 +4,7 @@
 	branch = 202211
 [submodule "sonic-linux-kernel"]
 	path = src/sonic-linux-kernel
-	url = https://github.com/sonic-net/sonic-linux-kernel
+	url = https://github.com/ubinexus/sonic-linux-kernel
 	branch = 202211
 [submodule "sonic-sairedis"]
 	path = src/sonic-sairedis
@@ -12,7 +12,7 @@
 	branch = 202211
 [submodule "sonic-swss"]
 	path = src/sonic-swss
-	url = https://github.com/sonic-net/sonic-swss
+	url = https://github.com/ubinexus/sonic-swss
 	branch = 202211
 [submodule "src/p4c-bm/p4c-bm"]
 	path = platform/p4/p4c-bm/p4c-bm
@@ -52,8 +52,8 @@
 	url = https://github.com/sonic-net/sonic-platform-pdk-pde
 [submodule "src/sonic-frr/frr"]
 	path = src/sonic-frr/frr
-	url = https://github.com/sonic-net/sonic-frr.git
-	branch = frr/8.2
+	url = git@github.com:liuyuefengcn/sonic-ubifrr.git
+	branch = ubifrr8.2.2
 [submodule "platform/p4/p4-hlir/p4-hlir-v1.1"]
 	path = platform/p4/p4-hlir/p4-hlir-v1.1
 	url = https://github.com/p4lang/p4-hlir.git
