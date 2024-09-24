@@ -1,0 +1,2 @@
+systemctl enable sr100_8t4s26x_platform.service
+systemctl start sr100_8t4s26x_platform.service

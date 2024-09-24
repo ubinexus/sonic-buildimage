@@ -1,0 +1,11 @@
+Source: sonic-centec-platform-modules
+Section: main
+Priority: extra
+Maintainer: qianj <qianj@centec.com>
+Build-Depends: debhelper (>= 8.0.0), bzip2
+Standards-Version: 3.9.3
+
+Package: platform-modules-g530-sr100-8t4s26x
+Architecture: arm64
+Depends: linux-image-5.10.0-23-2-arm64-unsigned
+Description: kernel modules for platform devices such as led, thermal

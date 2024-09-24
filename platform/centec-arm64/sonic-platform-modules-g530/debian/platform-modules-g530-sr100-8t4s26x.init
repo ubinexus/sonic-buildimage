@@ -1,0 +1,121 @@
+#!/bin/bash
+# This script load/unload centec kernel modules
+
+### BEGIN INIT INFO
+# Provides:          platform-modules-g530-sr100-8t4s26x
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Load Centec kernel modules
+### END INIT INFO
+
+function install_python_api_package()
+{
+    device="/usr/share/sonic/device"
+    platform=$(/usr/local/bin/sonic-cfggen -H -v DEVICE_METADATA.localhost.platform)
+
+    rv=$(pip2 show sonic-platform > /dev/null 2>/dev/null)
+    if [ $? -ne 0 ]; then
+        rv=$(pip2 install $device/$platform/sonic_platform-1.0-py2-none-any.whl)
+    fi
+    rv=$(pip3 show sonic-platform > /dev/null 2>/dev/null)
+    if [ $? -ne 0 ]; then
+        rv=$(pip3 install $device/$platform/sonic_platform-1.0-py3-none-any.whl)
+    fi
+}
+
+function load_kernel_modules()
+{
+    hwaddr=`fw_printenv ethaddr | awk -F = '{print $2}'`
+    if [ "$hwaddr" != "" ]; then
+        ifconfig eth0 hw ether $hwaddr
+    fi
+    depmod -a
+    modprobe centec_g530_sr100_8t4s26x_platform
+    modprobe fan-ctc5236
+    modprobe dal
+    modprobe tun
+    modprobe tap
+    modprobe psample
+    modprobe act_sample
+}
+
+function remove_kernel_modules()
+{
+    modprobe -r act_sample
+    modprobe -r psample
+    modprobe -r tap
+    modprobe -r tun
+    modprobe -r dal
+    modprobe -r fan-ctc5236
+    modprobe -r centec_g530_sr100_8t4s26x_platform
+}
+
+function create_i2c_device_nodes()
+{
+    # load pca954x driver for pca9548
+    modprobe i2c-mux-pca954x force_deselect_on_exit=1
+    # i2c-0 for bridge pca9548
+    # i2c-1 is tmsoc i2c bus1
+    # create i2c 2,3, 4,5,6,7,8,9 for pca9548 0x70 channel 0,1,2,3,4,5,6,7
+    echo pca9548 0x70 > /sys/bus/i2c/devices/i2c-0/new_device
+    # for sensor lm77
+    echo lm77 0x49 > /sys/bus/i2c/devices/i2c-0/new_device
+    # load lm77 driver for sensor lm77
+    modprobe lm77
+    sleep 1
+    # g530-sr100-8t4s26x use HTA8525 and HTM8501 optical modules,these drivers need to be designed by ourself
+    # modprobe optoe
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-2/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-3/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-4/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-5/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-6/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-7/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-8/new_device
+    # echo optoe2 0x50 > /sys/bus/i2c/devices/i2c-9/new_device
+}
+
+function remove_i2c_device_modules()
+{
+    modprobe -r i2c-mux-pca954x
+    modprobe -r lm77
+}
+
+case "$1" in
+start)
+    echo -n "Create Centec i2c device... "
+    modprobe i2c-dev
+    create_i2c_device_nodes
+    echo "done."
+    echo -n "Load Centec kernel modules... "
+    load_kernel_modules
+    install_python_api_package
+
+    echo "done."
+    ;;
+
+stop)
+    echo -n "Unload Centec kernel modules... "
+
+    remove_kernel_modules
+    remove_i2c_device_modules
+    
+    echo "done."
+    ;;
+
+force-reload|restart)
+    echo "Not supported"
+    ;;
+
+*)
+    echo "Usage: /etc/init.d/platform-modules-g530-sr100-8t4s26x {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
+
