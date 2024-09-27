@@ -25,6 +25,16 @@ RUN useradd -u ${frr_user_uid} -g ${frr_user_gid} -M -s /bin/false frr
 # Copy locally-built Debian package dependencies
 {{ copy_files("debs/", docker_fpm_frr_debs.split(' '), "/debs/") }}
 
+COPY ./libyang2 /debs/libyang2
+COPY ./libnetconf2 /debs/libnetconf2
+COPY ./sysrepo /debs/sysrepo
+COPY ./netopeer2 /debs/netopeer2
+
+RUN dpkg -i /debs/libyang2/*.deb || apt-get -y install -f && \
+    dpkg -i /debs/libnetconf2/*.deb && \
+    dpkg -i /debs/sysrepo/*.deb && \
+    dpkg -i /debs/netopeer2/*.deb
+
 # Install locally-built Debian packages and implicitly install their dependencies
 {{ install_debian_packages(docker_fpm_frr_debs.split(' ')) }}
 {%- endif %}
