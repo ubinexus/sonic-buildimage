@@ -16,7 +16,9 @@ RUN apt-get update   && \
         libc-ares2      \
         iproute2        \
         logrotate       \
-        libunwind8
+        libunwind8      \
+        libssh-4        \
+        libcurl3-nss
 
 RUN groupadd -g ${frr_user_gid} frr
 RUN useradd -u ${frr_user_uid} -g ${frr_user_gid} -M -s /bin/false frr
