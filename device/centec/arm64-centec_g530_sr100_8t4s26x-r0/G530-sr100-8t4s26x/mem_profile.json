@@ -1,0 +1,312 @@
+#Generate Date :2023-05-12 13:24:02#
+#Applicable Chip : CTC7132#
+#Copyright @ Centec Networks (SuZhou) Co., Ltd. All rights reserved.#
+{
+"mem_profile" : [{
+    "global" : {
+        "version" : 2,
+        "ip_route_mode" : 0,
+        "mcast_group_number" : 8192,
+        "glb_nexthop_number" : 16384,
+        "profile_specs" : {
+            "mac" : 32678,
+            "static_fdb" : 8192,
+            "fid" : 5120,
+            "l2mcast" : 1024,
+            "ip_host" : 12288,
+            "ip_lpm" : 131072,
+            "ipuc_lpmv6" : 32768,
+            "ipuc_nd" : 4096,
+            "ipmc" : 2048,
+            "acl" : 36864,
+            "acl_group" : 256,
+            "acl_flow" : 65536,
+            "scl" : 8192,
+            "scl_group" : 256,
+            "scl_flow" : 2048,
+            "vlan_xlate" : 24576,
+            "tunnel_decp" : 6144,
+            "oam" : 4096,
+            "mpls" : 32768,
+            "ipfix" : 131072,
+            "napt" : 1024,
+            "rchip_port" : 1024
+        }
+    },
+    "tcam" : {
+        "SCL0_160" : [{
+            "tbl_mem_id" : 0,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "SCL1_160" : [{
+            "tbl_mem_id" : 1,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "SCL2_160" : [{
+            "tbl_mem_id" : 2,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "SCL3_160" : [{
+            "tbl_mem_id" : 3,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL0_IPE_160" : [{
+            "tbl_mem_id" : 4,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL1_IPE_160" : [{
+            "tbl_mem_id" : 5,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 16,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        }],
+        "ACL2_IPE_160" : [{
+            "tbl_mem_id" : 6,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 17,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        }],
+        "ACL3_IPE_160" : [{
+            "tbl_mem_id" : 7,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 18,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        }],
+        "ACL4_IPE_160" : [{
+            "tbl_mem_id" : 8,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 15,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        }],
+        "ACL5_IPE_160" : [{
+            "tbl_mem_id" : 9,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL6_IPE_160" : [{
+            "tbl_mem_id" : 10,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL7_IPE_160" : [{
+            "tbl_mem_id" : 11,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL0_EPE_160" : [{
+            "tbl_mem_id" : 12,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL1_EPE_160" : [{
+            "tbl_mem_id" : 13,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "ACL2_EPE_160" : [{
+            "tbl_mem_id" : 14,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "IPV6_UCAST_ROUTE_KEY" : [{
+            "tbl_mem_id" : 0,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 1,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "IPV6_UCAST_HALF_KEY" : [{
+            "tbl_mem_id" : 2,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 3,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 4,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 5,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 6,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        },{
+            "tbl_mem_id" : 7,
+            "entry_offset" :  0,
+            "entry_size" : 1024
+        }],
+        "IPV4_UCAST_ROUTE_KEY" : [{
+            "tbl_mem_id" : 8,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        },{
+            "tbl_mem_id" : 9,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        },{
+            "tbl_mem_id" : 10,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        },{
+            "tbl_mem_id" : 11,
+            "entry_offset" :  0,
+            "entry_size" : 2048
+        }]
+    },
+    "sram" : {
+        "SCL_HASH_KEY" : [{
+            "tbl_mem_id" : 6,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        },{
+            "tbl_mem_id" : 7,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        },{
+            "tbl_mem_id" : 9,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "SCL1_HASH_KEY" : [{
+            "tbl_mem_id" : 8,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "XCOAM_HASH_KEY" : [{
+            "tbl_mem_id" : 3,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        }],
+        "FIB_HASH_KEY" : [{
+            "tbl_mem_id" : 23,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        },{
+            "tbl_mem_id" : 24,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        },{
+            "tbl_mem_id" : 25,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        },{
+            "tbl_mem_id" : 26,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        }],
+        "FIB0_HASH_KEY" : [{
+            "tbl_mem_id" : 4,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        },{
+            "tbl_mem_id" : 5,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "FIB1_HASH_KEY" : [{
+            "tbl_mem_id" : 10,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "LPM_PIPE0" : [{
+            "tbl_mem_id" : 0,
+            "entry_offset" :  0,
+            "entry_size" : 32768
+        },{
+            "tbl_mem_id" : 1,
+            "entry_offset" :  0,
+            "entry_size" : 32768
+        }],
+        "OAM_MEP" : [{
+            "tbl_mem_id" : 2,
+            "entry_offset" :  0,
+            "entry_size" : 32768
+        }],
+        "SCL_HASH_AD" : [{
+            "tbl_mem_id" : 15,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        }],
+        "SCL1_HASH_AD" : [{
+            "tbl_mem_id" : 16,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        }],
+        "DSMAC_AD" : [{
+            "tbl_mem_id" : 11,
+            "entry_offset" :  0,
+            "entry_size" : 32768
+        }],
+        "DSIP_AD" : [{
+            "tbl_mem_id" : 12,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        },{
+            "tbl_mem_id" : 13,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        },{
+            "tbl_mem_id" : 14,
+            "entry_offset" :  0,
+            "entry_size" : 32768
+        }],
+        "NEXTHOP" : [{
+            "tbl_mem_id" : 29,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        }],
+        "EDIT" : [{
+            "tbl_mem_id" : 19,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        },{
+            "tbl_mem_id" : 21,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        },{
+            "tbl_mem_id" : 22,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "FWD" : [{
+            "tbl_mem_id" : 18,
+            "entry_offset" :  0,
+            "entry_size" : 16384
+        },{
+            "tbl_mem_id" : 20,
+            "entry_offset" :  0,
+            "entry_size" : 8192
+        }],
+        "MET" : [{
+            "tbl_mem_id" : 17,
+            "entry_offset" :  0,
+            "entry_size" : 65536
+        }]
+    }
+    }]
+}
+
