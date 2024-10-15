@@ -18,11 +18,24 @@ endif
 	stg import -s ../patch/series
 	gbp dch --ignore-branch --new-version=$(FRR_VERSION)-sonic-$(FRR_SUBVERSION) --dch-opt="--force-bad-version" --commit --git-author	
 
+	sudo dpkg -i ./sysrepo/*.deb || sudo apt-get -y install -f
+	cp -r ./libyang2 ../../../dockers/docker-fpm-frr/
+	cp -r ./libnetconf2 ../../../dockers/docker-fpm-frr/
+	cp -r ./sysrepo ../../../dockers/docker-fpm-frr/
+	cp -r ./netopeer2 ../../../dockers/docker-fpm-frr/
+
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	CFLAGS="-I $$CROSS_PERL_CORE_PATH" dpkg-buildpackage -rfakeroot -b -d -us -uc -Ppkg.frr.nortrlib -a$(CONFIGURED_ARCH) -Pcross,nocheck -j$(SONIC_CONFIG_MAKE_JOBS) --admindir $(SONIC_DPKG_ADMINDIR)
 else
 	DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -rfakeroot -b -us -uc -Ppkg.frr.nortrlib -j$(SONIC_CONFIG_MAKE_JOBS) --admindir $(SONIC_DPKG_ADMINDIR)
 endif
+
+	sudo dpkg -r libsysrepo-dev
+	sudo dpkg -r libsysrepo6-dbgsym
+	sudo dpkg -r sysrepo-tools-dbgsym
+	sudo dpkg -r sysrepo-tools
+	sudo dpkg -r libsysrepo6
+
 	stg undo || true
 	git clean -xfdf
 	git checkout $(FRR_BRANCH)
