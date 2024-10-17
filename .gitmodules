@@ -52,8 +52,8 @@
 	url = https://github.com/sonic-net/sonic-platform-pdk-pde
 [submodule "src/sonic-frr/frr"]
 	path = src/sonic-frr/frr
-	url = git@github.com:liuyuefengcn/sonic-ubifrr.git
-	branch = ubifrr8.2.2
+	url = git@github.com:ubinexus/sonic-frr.git
+	branch = mainline
 [submodule "platform/p4/p4-hlir/p4-hlir-v1.1"]
 	path = platform/p4/p4-hlir/p4-hlir-v1.1
 	url = https://github.com/p4lang/p4-hlir.git
