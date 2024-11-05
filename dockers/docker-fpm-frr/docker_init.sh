@@ -95,4 +95,72 @@ chmod 0755 /usr/sbin/bgp-unisolate
 mkdir -p /var/sonic
 echo "# Config files managed by sonic-config-engine" > /var/sonic/config_status
 
+sysrepoctl -i /usr/share/yang/frr-vrf.yang
+sysrepoctl -i /usr/share/yang/frr-interface.yang
+sysrepoctl -i /usr/share/yang/frr-filter.yang
+sysrepoctl -i /usr/share/yang/frr-route-map.yang
+sysrepoctl -i /usr/share/yang/frr-route-types.yang
+sysrepoctl -i /usr/share/yang/frr-isisd.yang
+
+sysrepoctl -i /usr/share/yang/frr-bfdd.yang
+sysrepoctl -i /usr/share/yang/ietf-routing-types.yang
+sysrepoctl -i /usr/share/yang/frr-nexthop.yang
+sysrepoctl -i /usr/share/yang/frr-pathd.yang
+
+sysrepoctl -i /usr/share/yang/frr-bgp-filter.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-route-map.yang
+
+sysrepoctl -i /usr/share/yang/frr-routing.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-types.yang
+sysrepoctl -i /usr/share/yang/ietf-bgp-types.yang
+sysrepoctl -i /usr/share/yang/frr-bgp.yang -s usr/share/yang
+sysrepoctl -i /usr/share/yang/frr-bgp-common.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-common-structure.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-common-multiprotocol.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-neighbor.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-peer-group.yang
+sysrepoctl -i /usr/share/yang/frr-bgp-bmp.yang
+
+sysrepoctl -c frr-filter -o frr -g frr -p 666
+sysrepoctl -c frr-interface -o frr -g frr -p 666
+sysrepoctl -c frr-isisd -o frr -g frr -p 666
+sysrepoctl -c frr-route-map -o frr -g frr -p 666
+sysrepoctl -c frr-route-types -o frr -g frr -p 666
+sysrepoctl -c frr-vrf -o frr -g frr -p 666
+
+sysrepoctl -c frr-bfdd -o frr -g frr -p 666
+sysrepoctl -c ietf-routing-types -o frr -g frr -p 666
+sysrepoctl -c frr-nexthop -o frr -g frr -p 666
+sysrepoctl -c frr-pathd -o frr -g frr -p 666
+
+sysrepoctl -c frr-bgp-filter -o root -g root -p 666
+sysrepoctl -c frr-bgp-route-map -o root -g root -p 666
+
+sysrepoctl -c frr-routing -o root -g root -p 666
+sysrepoctl -c frr-bgp-types -o root -g root -p 666
+sysrepoctl -c ietf-bgp-types -o root -g root -p 666
+sysrepoctl -c frr-bgp -o root -g root -p 666
+
+sysrepoctl -c frr-filter -p 666
+sysrepoctl -c frr-interface -p 666
+sysrepoctl -c frr-isisd -p 666
+sysrepoctl -c frr-route-map -p 666
+sysrepoctl -c frr-route-types -p 666
+sysrepoctl -c frr-vrf -p 666
+
+sysrepoctl -c frr-bfdd -p 666
+sysrepoctl -c ietf-routing-types -p 666
+sysrepoctl -c frr-nexthop -p 666
+sysrepoctl -c frr-pathd -p 666
+
+sysrepoctl -c frr-bgp-filter -p 666
+sysrepoctl -c frr-bgp-route-map -p 666
+
+sysrepoctl -c frr-routing -p 666
+sysrepoctl -c frr-bgp-types -p 666
+sysrepoctl -c ietf-bgp-types -p 666
+sysrepoctl -c frr-bgp -p 666
+
+netopeer2-server -d -v 2 &
+
 exec /usr/local/bin/supervisord
