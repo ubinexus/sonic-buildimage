@@ -121,6 +121,15 @@ sysrepoctl -i /usr/share/yang/frr-bgp-neighbor.yang
 sysrepoctl -i /usr/share/yang/frr-bgp-peer-group.yang
 sysrepoctl -i /usr/share/yang/frr-bgp-bmp.yang
 
+sysrepoctl -i /usr/share/yang/openconfig-extensions.yang
+sysrepoctl -i /usr/share/yang/openconfig-inet-types.yang
+sysrepoctl -i /usr/share/yang/openconfig-telemetry-types.yang
+sysrepoctl -i /usr/share/yang/openconfig-telemetry.yang
+sysrepoctl -i /usr/share/yang/cscn-extension.yang
+sysrepoctl -i /usr/share/yang/cscn-network-instance.yang
+sysrepoctl -i /usr/share/yang/cscn-pub-type.yang
+sysrepoctl -i /usr/share/yang/cscn-openconfig-telemetry-ext.yang
+
 sysrepoctl -c frr-filter -o frr -g frr -p 666
 sysrepoctl -c frr-interface -o frr -g frr -p 666
 sysrepoctl -c frr-isisd -o frr -g frr -p 666
@@ -160,6 +169,17 @@ sysrepoctl -c frr-routing -p 666
 sysrepoctl -c frr-bgp-types -p 666
 sysrepoctl -c ietf-bgp-types -p 666
 sysrepoctl -c frr-bgp -p 666
+
+sysrepoctl -c ietf-interfaces -o root -g root -p 666
+
+sysrepoctl -c openconfig-extensions -o root -g root -p 666
+sysrepoctl -c openconfig-inet-types -o root -g root -p 666
+sysrepoctl -c openconfig-telemetry-types -o root -g root -p 666
+sysrepoctl -c openconfig-telemetry -o root -g root -p 666
+sysrepoctl -c cscn-extension -o root -g root -p 666
+sysrepoctl -c cscn-network-instance -o root -g root -p 666
+sysrepoctl -c cscn-pub-type -o root -g root -p 666
+sysrepoctl -c cscn-openconfig-telemetry-ext -o root -g root -p 666
 
 netopeer2-server -d -v 2 &
 
