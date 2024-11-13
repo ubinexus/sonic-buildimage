@@ -30,30 +30,29 @@
 			arch = "arm64";
 			os = "linux";
 			compression = "gzip";
-			load = <0x85000000>;
-			entry = <0x85000000>;
+			load = <0x00000000>;
+			entry = <0x00000000>;
 			hash {				
 				algo = "crc32";			
 			};
 		};
 		ctc_fdt {
-			description = "dtb for tm_ctc5236";			
-			data = /incbin/("./e530-ctc5236.dtb");			
+			description = "dtb for phytium";			
+			data = /incbin/("./phytium-d2000.dtb");			
 			type = "flat_dt";
 			arch = "arm64";			
 			os = "linux";			
-			compression = "none";			
-			load = <0x88000000>;			
+			compression = "none";					
 			hash {				
 				algo = "crc32";			
 			};
 		};
 	};
 	configurations {
-		default = "e530-ctc5236";
+		default = "phytium-d2000";
 					
-		e530-ctc5236 {			
-			description = "config for tm_ctc5236";			
+		phytium-d2000 {			
+			description = "config for phytium_d2000";			
 			kernel = "kernel_ctc";			
 			ramdisk = "initramfs";			
 			fdt = "ctc_fdt";		

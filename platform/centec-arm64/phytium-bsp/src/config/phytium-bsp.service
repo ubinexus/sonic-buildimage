@@ -1,0 +1,13 @@
+[Unit]
+Description=Centec phytium bsp init
+After=local-fs.target
+Before=syncd.service
+
+[Service]
+Type=oneshot
+ExecStart=-/etc/init.d/phytium-bsp start
+ExecStop=-/etc/init.d/phytium-bsp stop
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
