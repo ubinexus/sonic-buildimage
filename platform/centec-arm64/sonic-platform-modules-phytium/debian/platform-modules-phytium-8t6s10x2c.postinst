@@ -1,0 +1,2 @@
+systemctl enable 8t6s10x2c_platform.service
+systemctl start 8t6s10x2c_platform.service
