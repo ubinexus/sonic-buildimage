@@ -67,7 +67,7 @@
         }, 
         "intr_cfg": {
             "irq": 69,
-            "intr_mode": 0
+            "intr_mode": 1
         }, 
         "nh_cfg": {
             "max_ecmp": 0, 

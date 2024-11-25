@@ -167,7 +167,7 @@ static unsigned long long dma_phy_base[DAL_MAX_CHIP_NUM];
 #if defined(SOC_ACTIVE)
 static unsigned int dma_mem_size = 0xc00000;
 #else
-static unsigned int dma_mem_size = 0x8000000;
+static unsigned int dma_mem_size = 0x2000000;
 #endif
 static unsigned int* wb_virt_base[DAL_MAX_CHIP_NUM];
 static unsigned long long wb_phy_base[DAL_MAX_CHIP_NUM];
