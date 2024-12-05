@@ -78,8 +78,20 @@ elif [ "$CONFIG_TYPE" == "unified" ]; then
         -y /etc/sonic/constants.yml \
         -t /usr/share/sonic/templates/gen_frr.conf.j2,/etc/frr/frr.conf \
     "
-    sonic-cfggen $CFGGEN_PARAMS
+    sonic-cfggen $CFGGEN_PARAMS # 这里有一个bug，issu:https://github.com/sonic-net/sonic-buildimage/issues/20019， 修复pr:https://github.com/sonic-net/sonic-buildimage/pull/20020
     echo "service integrated-vtysh-config" > /etc/frr/vtysh.conf
+    if grep -qxF 'fpm address 127.0.0.1' /etc/frr/frr.conf; then
+        echo 'fpm address 127.0.0.1 configured'
+    else
+        echo 'fpm address 127.0.0.1' >> /etc/frr/frr.conf
+        echo '!' >> /etc/frr/frr.conf
+    fi
+    if grep -qxF 'no fpm use-next-hop-groups' /etc/frr/frr.conf; then
+        echo 'no fpm use-next-hop-groups configured'
+    else
+        echo 'no fpm use-next-hop-groups' >> /etc/frr/frr.conf
+        echo '!' >> /etc/frr/frr.conf
+    fi
     rm -f /etc/frr/bgpd.conf /etc/frr/zebra.conf /etc/frr/staticd.conf \
           /etc/frr/bfdd.conf /etc/frr/ospfd.conf /etc/frr/pimd.conf
 fi
