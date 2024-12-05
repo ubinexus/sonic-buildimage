@@ -1,6 +1,6 @@
-#Generate Date :2023-05-12 13:24:02#
+#Generate Date :2024-06-07 16:55:15#
 #Applicable Chip : CTC7132#
-#Copyright @ Centec Networks (SuZhou) Co., Ltd. All rights reserved.#
+#Copyright @ Suzhou Centec Communications Co., Ltd. All rights reserved.#
 {
 "mem_profile" : [{
     "global" : {
@@ -30,7 +30,8 @@
             "mpls" : 32768,
             "ipfix" : 131072,
             "napt" : 1024,
-            "rchip_port" : 1024
+            "rchip_port" : 1024,
+            "aps" : 4096
         }
     },
     "tcam" : {
@@ -133,8 +134,7 @@
             "tbl_mem_id" : 1,
             "entry_offset" :  0,
             "entry_size" : 1024
-        }],
-        "IPV6_UCAST_HALF_KEY" : [{
+        },{
             "tbl_mem_id" : 2,
             "entry_offset" :  0,
             "entry_size" : 1024
@@ -142,7 +142,8 @@
             "tbl_mem_id" : 3,
             "entry_offset" :  0,
             "entry_size" : 1024
-        },{
+        }],
+        "IPV4_UCAST_ROUTE_KEY" : [{
             "tbl_mem_id" : 4,
             "entry_offset" :  0,
             "entry_size" : 1024
@@ -158,8 +159,7 @@
             "tbl_mem_id" : 7,
             "entry_offset" :  0,
             "entry_size" : 1024
-        }],
-        "IPV4_UCAST_ROUTE_KEY" : [{
+        },{
             "tbl_mem_id" : 8,
             "entry_offset" :  0,
             "entry_size" : 2048
