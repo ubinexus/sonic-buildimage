@@ -364,7 +364,7 @@
                                         partition@500000 {
                                          /* uboot-env - 64k */
                                         label = "uboot-env";
-                                        reg = <0x500000 0x1000>;
+                                        reg = <0x500000 0x40000>;
                                         env_size = <0x1000>;
                                         };
 
