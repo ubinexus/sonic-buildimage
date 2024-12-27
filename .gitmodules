@@ -114,3 +114,6 @@
 [submodule "src/sonic-gnmi"]
 	path = src/sonic-gnmi
 	url = https://github.com/sonic-net/sonic-gnmi.git
+[submodule "src/som"]
+	path = src/som
+	url = git@github.com:ubinexus/som.git

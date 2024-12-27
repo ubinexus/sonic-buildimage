@@ -109,6 +109,10 @@ sudo dpkg --root=$FILESYSTEM_ROOT --force-confdef --force-confold -i $debs_path/
 sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install \
     python3-dev
 
+# Install SOM module
+sudo dpkg --root=$FILESYSTEM_ROOT -i $debs_path/som_*.deb || \
+    sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y install -f
+
 # Install j2cli for handling jinja template
 sudo https_proxy=$https_proxy LANG=C chroot $FILESYSTEM_ROOT pip3 install "j2cli==0.3.10"
 
