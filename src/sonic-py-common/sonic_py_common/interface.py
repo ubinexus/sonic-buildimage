@@ -40,6 +40,12 @@ def portchannel_prefix():
     """
     return SONIC_INTERFACE_PREFIXES["PortChannel"]
 
+def ethtrunk_prefix():
+    """
+    Retrieves the SONIC EthTrunk interface name prefix.
+    """
+    return SONIC_INTERFACE_PREFIXES["EthTrunk"]
+
 def vlan_prefix():
     """
     Retrieves the SONIC Vlan interface name prefix.
@@ -87,6 +93,8 @@ def get_interface_table_name(interface_name):
         if VLAN_SUB_INTERFACE_SEPARATOR in interface_name:
             return "VLAN_SUB_INTERFACE"
         return "PORTCHANNEL_INTERFACE"
+    elif interface_name.startswith(ethtrunk_prefix()):
+        return "ETHTRUNK_INTERFACE"
     elif interface_name.startswith(vlan_prefix()):
         return "VLAN_INTERFACE"
     elif interface_name.startswith(loopback_prefix()):
@@ -110,6 +118,8 @@ def get_port_table_name(interface_name):
         return "PORTCHANNEL"
     elif interface_name.startswith(vlan_prefix()):
         return "VLAN_INTERFACE"
+    elif interface_name.startswith(ethtrunk_prefix()):
+        return "ETHTRUNK_INTERFACE"
     elif interface_name.startswith(loopback_prefix()):
         return "LOOPBACK_INTERFACE"
     elif VLAN_SUB_INTERFACE_SEPARATOR in interface_name:
