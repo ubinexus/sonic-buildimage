@@ -12,7 +12,7 @@
 	branch = 202211
 [submodule "sonic-swss"]
 	path = src/sonic-swss
-	url = https://github.com/ubinexus/sonic-swss
+	url = git@github.com:ubinexus/sonic-swss.git
 	branch = 202211
 [submodule "src/p4c-bm/p4c-bm"]
 	path = platform/p4/p4c-bm/p4c-bm
@@ -34,7 +34,7 @@
 	url = https://github.com/p4lang/ptf.git
 [submodule "src/sonic-utilities"]
 	path = src/sonic-utilities
-	url = https://github.com/sonic-net/sonic-utilities
+	url = git@github.com:ubinexus/sonic-utilities.git
 	branch = 202211
 [submodule "platform/broadcom/sonic-platform-modules-arista"]
 	path = platform/broadcom/sonic-platform-modules-arista
@@ -110,7 +110,7 @@
 	url = https://github.com/sonic-net/sonic-dhcp-relay.git
 [submodule "src/sonic-host-services"]
 	path = src/sonic-host-services
-	url = https://github.com/sonic-net/sonic-host-services
+	url = git@github.com:ubinexus/sonic-host-services.git
 [submodule "src/sonic-gnmi"]
 	path = src/sonic-gnmi
 	url = https://github.com/sonic-net/sonic-gnmi.git
