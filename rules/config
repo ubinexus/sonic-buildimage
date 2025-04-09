@@ -129,13 +129,13 @@ INCLUDE_SYSTEM_TELEMETRY = y
 INCLUDE_ICCPD = n
 
 # INCLUDE_SFLOW - build docker-sflow for sFlow support
-INCLUDE_SFLOW = y
+INCLUDE_SFLOW = n
 
 # ENABLE_SFLOW_DROPMON - support of drop packets monitoring feature for sFlow deamon
 ENABLE_SFLOW_DROPMON = n
 
 # INCLUDE_MGMT_FRAMEWORK - build docker-sonic-mgmt-framework for CLI and REST server support
-INCLUDE_MGMT_FRAMEWORK = y
+INCLUDE_MGMT_FRAMEWORK = n
 
 # ENABLE_HOST_SERVICE_ON_START - enable sonic-host-server for mgmt-framework and/or
 # telemetry containers to access host functionality by default
@@ -145,10 +145,10 @@ ENABLE_HOST_SERVICE_ON_START = y
 INCLUDE_RESTAPI = n
 
 # INCLUDE_NAT - build docker-nat for nat support
-INCLUDE_NAT = y
+INCLUDE_NAT = n
 
 # INCLUDE_DHCP_RELAY - build and install dhcp-relay package
-INCLUDE_DHCP_RELAY = y
+INCLUDE_DHCP_RELAY = n
 
 # INCLUDE_P4RT - build docker-p4rt for P4RT support
 INCLUDE_P4RT = n
@@ -165,13 +165,13 @@ ENABLE_AUTO_TECH_SUPPORT = y
 # ENABLE_NATIVE_WRITE = y
 
 # INCLUDE_MACSEC - build docker-macsec for macsec support
-INCLUDE_MACSEC = y
+INCLUDE_MACSEC = n
 
 # INCLUDE_TEAMD - build docker-teamd for LAG protocol support
 INCLUDE_TEAMD ?= y
 
 # INCLUDE_ROUTER_ADVERTISER - build docker-router-advertiser for router advertisements support
-INCLUDE_ROUTER_ADVERTISER ?= y
+INCLUDE_ROUTER_ADVERTISER ?= n
 
 # INCLUDE_KUBERNETES - if set to y kubernetes packages are installed to be able to
 # run as worker node in kubernetes cluster.
@@ -189,7 +189,7 @@ KUBERNETES_CNI_VERSION = 0.8.7-00
 KUBERNETES_CRI_TOOLS_VERSION = 1.26.0-00
 K8s_GCR_IO_PAUSE_VERSION = 3.5
 
-# INCLUDE_KUBERNETES_MASTER - if set to y kubernetes packages are installed o be able 
+# INCLUDE_KUBERNETES_MASTER - if set to y kubernetes packages are installed o be able
 # to run as master node in kubernetes cluster
 INCLUDE_KUBERNETES_MASTER ?= n
 
@@ -225,8 +225,8 @@ SONIC_ENABLE_SECUREBOOT_SIGNATURE ?= n
 # SECURE_UPGRADE_MODE - enum value for secure upgrade mode, valid options are "dev", "prod" and "no_sign"
 # SECURE_UPGRADE_PROD_SIGNING_TOOL - path to a vendor signing tool for production flow.
 # SECURE_UPGRADE_PROD_TOOL_ARGS - Extra arguments options for vendor to use to run his specific prod signing script
-SECURE_UPGRADE_DEV_SIGNING_KEY ?= 
-SECURE_UPGRADE_SIGNING_CERT ?= 
+SECURE_UPGRADE_DEV_SIGNING_KEY ?=
+SECURE_UPGRADE_SIGNING_CERT ?=
 SECURE_UPGRADE_MODE = "no_sign"
 SECURE_UPGRADE_PROD_SIGNING_TOOL ?=
 SECURE_UPGRADE_PROD_TOOL_ARGS ?=
@@ -261,7 +261,7 @@ REGISTRY_SERVER_PATH ?=
 BUILD_MULTIASIC_KVM = n
 
 # INCLUDE_MUX - build docker-mux for dual ToR (Gemini)
-INCLUDE_MUX = y
+INCLUDE_MUX = n
 
 # ENABLE_ASAN - enable address sanitizer
 ENABLE_ASAN ?= n
@@ -281,7 +281,10 @@ ENABLE_FIPS_FEATURE ?= y
 ENABLE_FIPS ?= n
 
 # SONIC_SLAVE_DOCKER_DRIVER - set the sonic slave docker storage driver
-SONIC_SLAVE_DOCKER_DRIVER ?= vfs
+SONIC_SLAVE_DOCKER_DRIVER ?= overlay2
 
 # SONIC_OS_VERSION - sonic os version
 SONIC_OS_VERSION ?= 11
+
+INCLUDE_LLDP = n
+INCLUDE_SNMP = n
