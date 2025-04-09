@@ -14,9 +14,9 @@ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	git reset --hard
 endif
-	stg branch --create $(STG_BRANCH) $(FRR_TAG)
+	stg branch --create $(STG_BRANCH) $(FRR_BRANCH)
 	stg import -s ../patch/series
-	gbp dch --ignore-branch --new-version=$(FRR_VERSION)-sonic-$(FRR_SUBVERSION) --dch-opt="--force-bad-version" --commit --git-author	
+	gbp dch --ignore-branch --new-version=$(FRR_VERSION)-sonic-$(FRR_SUBVERSION) --dch-opt="--force-bad-version" --commit --git-author
 
 	sudo dpkg -i ./sysrepo/*.deb || sudo apt-get -y install -f
 	cp -r ./libyang2 ../../../dockers/docker-fpm-frr/
@@ -44,8 +44,6 @@ endif
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	git reset --hard
 endif
-	git checkout master
-	git branch -D $(FRR_BRANCH)
 	popd
 	mv $(DERIVED_TARGET) $* $(DEST)/
 
