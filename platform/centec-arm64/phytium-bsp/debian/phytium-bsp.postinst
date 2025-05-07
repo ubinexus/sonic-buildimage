@@ -1,0 +1,2 @@
+systemctl enable phytium-bsp.service
+systemctl start phytium-bsp.service

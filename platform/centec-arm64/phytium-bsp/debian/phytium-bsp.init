@@ -1,0 +1,49 @@
+#!/bin/bash
+# This script config phytium d2000
+
+### BEGIN INIT INFO
+# Provides:          phytium-bsp
+# Required-Start:
+# Required-Stop:
+# Should-Start:
+# Should-Stop:
+# Default-Start:     S
+# Default-Stop:      0 6
+# Short-Description: Config Phytium D2000
+### END INIT INFO
+
+
+function config_phytium_d2000()
+{
+    hwaddr=`fw_printenv ethaddr | awk -F = '{print $2}'`
+    if [ "$hwaddr" != "" ]; then
+        ifconfig eth0 hw ether $hwaddr
+    fi
+    modprobe tun
+    modprobe tap
+}
+
+case "$1" in
+start)
+    echo -n "Config Phytium D2000... "
+
+    config_phytium_d2000
+
+    echo "done."
+    ;;
+
+stop)
+    echo "done."
+    ;;
+
+force-reload|restart)
+    echo "Not supported"
+    ;;
+
+*)
+    echo "Usage: /etc/init.d/phytium-bsp {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0

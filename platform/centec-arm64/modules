@@ -1,10 +1,6 @@
 pinctrl-ctc
 mtdblock
 ofpart
-spi-ctc-qspi
-spi-nor
-m25p80
-i2c-ctc
 i2c-dev
 rtc-sd2405
 ctc5236_switch
@@ -20,3 +16,4 @@ ext4
 overlay
 squashfs
 mars
+vrf

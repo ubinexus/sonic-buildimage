@@ -4,9 +4,10 @@ include $(PLATFORM_PATH)/docker-syncd-centec-rpc.mk
 include $(PLATFORM_PATH)/docker-saiserver-centec.mk
 include $(PLATFORM_PATH)/one-image.mk
 include $(PLATFORM_PATH)/libsaithrift-dev.mk
-include $(PLATFORM_PATH)/tsingma-bsp.mk
 include $(PLATFORM_PATH)/platform-modules-centec-e530.mk
 include $(PLATFORM_PATH)/platform-modules-fs.mk
+include $(PLATFORM_PATH)/phytium-bsp.mk
+include $(PLATFORM_PATH)/platform-modules-centec-phytium.mk
 
 SONIC_ALL += $(SONIC_ONE_IMAGE) \
              $(DOCKER_FPM)
