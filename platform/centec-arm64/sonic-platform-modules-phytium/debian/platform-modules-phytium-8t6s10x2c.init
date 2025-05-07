@@ -30,6 +30,7 @@ function load_kernel_modules()
         ifconfig eth0 hw ether $hwaddr
     fi
     depmod -a
+    modprobe wave_drv
     modprobe ctc-i2c-mux-pca954x
     modprobe centec_phytium_8t6s10x2c_platform
     modprobe dal
@@ -50,6 +51,7 @@ case "$1" in
 start)
     echo -n "Load Centec kernel modules... "
 
+    cp -rP /usr/conf/* /
     load_kernel_modules
     install_python_api_package
 

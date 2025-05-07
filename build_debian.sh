@@ -398,8 +398,9 @@ sudo LANG=C DEBIAN_FRONTEND=noninteractive chroot $FILESYSTEM_ROOT apt-get -y in
     jq                      \
     auditd                  \
     linux-perf              \
-	lsof                    \
-	sysstat
+    lsof                    \
+    sysstat                 \
+    watchdog
 
 # default rsyslog version is 8.2110.0 which has a bug on log rate limit,
 # use backport version

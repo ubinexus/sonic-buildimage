@@ -29,6 +29,13 @@
 		device_type = "memory";
 		reg = <0x20 0x00000000 0x1 0x00000000>;
 	};
+
+	wave_gpio_device {
+		compatible = "wave-gpio-device";
+		reg = <0x0 0x28180214 0x0 0x4>;
+		status = "ok";
+		gpios = <&gpio1 15 0>;
+	};
 };
 
 &uart1 {
