@@ -18,7 +18,7 @@ $(addprefix $(DEST)/, $(MAIN_TARGET)): $(DEST)/% :
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	git reset --hard
 endif
-	stg branch --create $(STG_BRANCH) $(FRR_TAG)
+	stg branch --create $(STG_BRANCH) $(FRR_BRANCH)
 	stg import -s ../patch/series
 	gbp dch --ignore-branch --new-version=$(FRR_VERSION)-sonic-$(FRR_SUBVERSION) --dch-opt="--force-bad-version" --commit --git-author
 	cp ../$(DPLANE_FPM_SONIC_MODULE) zebra/
@@ -26,7 +26,7 @@ endif
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	CFLAGS="-I $$CROSS_PERL_CORE_PATH" dpkg-buildpackage -rfakeroot -b -d -us -uc -Ppkg.frr.nortrlib -a$(CONFIGURED_ARCH) -Pcross,nocheck -j$(SONIC_CONFIG_MAKE_JOBS) --admindir $(SONIC_DPKG_ADMINDIR)
 else
-	dpkg-buildpackage -rfakeroot -b -us -uc -Ppkg.frr.nortrlib -j$(SONIC_CONFIG_MAKE_JOBS) --admindir $(SONIC_DPKG_ADMINDIR)
+	DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -rfakeroot -b -us -uc -Ppkg.frr.nortrlib -j$(SONIC_CONFIG_MAKE_JOBS) --admindir $(SONIC_DPKG_ADMINDIR)
 endif
 	stg undo || true
 	git clean -xfdf
@@ -36,9 +36,6 @@ endif
 ifeq ($(CROSS_BUILD_ENVIRON), y)
 	git reset --hard
 endif
-	git branch -f master origin/$(FRR_BRANCH)
-	git checkout master
-	git branch -D $(FRR_BRANCH)
 	popd
 	mv $(DERIVED_TARGET) $* $(DEST)/
 
